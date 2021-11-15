@@ -70,20 +70,11 @@ namespace ZooLabLibrary
         public void HireEmployee(IEmployee employee)
         {
             HireValidatorProvider provider = new HireValidatorProvider();
-            HireValidator validator = provider.GetHireValidator(employee);
-            List<Exception> errors = validator.ValidateEmployee(employee, this);
-            if (errors.Count == 0)
-            {
-                Console.WriteLine($"Employee {employee.FirstName} {employee.LastName} was hired to zoo at {this.Location}");
-                Employees.Add(employee);
-            }
-            else
-            {
-                foreach (Exception error in errors)
-                {
-                    Console.WriteLine(error.Message);
-                }
-            }
+            IHireValidator validator = provider.GetHireValidator(employee);
+            validator.ValidateEmployee(employee, this);
+            // If no exceptions were thrown, validation is alright
+            Console.WriteLine($"Employee {employee.FirstName} {employee.LastName} was hired to zoo at {this.Location}");
+            Employees.Add(employee);
         }
 
         // Get all types of animals in this zoo

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace ZooLabLibrary
 {
-    public abstract class HireValidator
+    public abstract class HireValidator : IHireValidator
     {
-        public abstract List<Exception> ValidateEmployee(IEmployee employee, Zoo zoo);
+        public abstract void ValidateEmployee(IEmployee employee, Zoo zoo);
     }
 }

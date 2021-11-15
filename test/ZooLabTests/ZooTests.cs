@@ -55,6 +55,7 @@ namespace ZooLabTests
             Lion lion1 = new Lion(1, false);
             zoo.AddAnimal(lion1);
             ZooKeeper zooKeeper = new ZooKeeper("Ivan", "Petrov");
+            zooKeeper.AddAnimalExperience(lion1);
             zoo.HireEmployee(zooKeeper);
         }
     }

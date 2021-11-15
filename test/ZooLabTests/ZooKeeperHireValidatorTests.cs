@@ -24,8 +24,7 @@ namespace ZooLabTests
             zoo.AddAnimal(lion);
             ZooKeeper zooKeeper = new ZooKeeper("Ivan", "Petrov");
             zooKeeper.AddAnimalExperience(lion);
-            List<Exception> errors = validator.ValidateEmployee(zooKeeper, zoo);
-            Assert.Empty(errors);
+            validator.ValidateEmployee(zooKeeper, zoo);
         }
 
         [Fact]
@@ -37,10 +36,7 @@ namespace ZooLabTests
             Lion lion = new Lion(1, false);
             zoo.AddAnimal(lion);
             ZooKeeper zooKeeper = new ZooKeeper("Ivan", "Petrov");
-            List<Exception> errors = validator.ValidateEmployee(zooKeeper, zoo);
-            Assert.Single(errors);
-            Assert.Equal("Zookeeper Ivan Petrov must have experience at working with Lion",
-                errors[0].Message);
+            Assert.Throws<NoNeededExperienceException>(() => validator.ValidateEmployee(zooKeeper, zoo));
         }
 
         [Fact]
@@ -52,10 +48,7 @@ namespace ZooLabTests
             Lion lion = new Lion(1, false);
             zoo.AddAnimal(lion);
             Veterinarian veterinarian = new Veterinarian("Ivan", "Petrov");
-            List<Exception> errors = validator.ValidateEmployee(veterinarian, zoo);
-            Assert.Single(errors);
-            Assert.Equal("Employee Ivan Petrov must be zookeeper to be validated with ZooKeeperHireValidator",
-                errors[0].Message);
+            Assert.Throws<Exception>(() => validator.ValidateEmployee(veterinarian, zoo));
         }
     }
 }

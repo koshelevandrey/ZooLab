@@ -5,15 +5,14 @@ namespace ZooLabLibrary
 {
     public class VeterinarianHireValidator : HireValidator
     {
-        public override List<Exception> ValidateEmployee(IEmployee employee, Zoo zoo)
+        public override void ValidateEmployee(IEmployee employee, Zoo zoo)
         {
             List<Exception> errors = new List<Exception>();
 
             if (!(employee is Veterinarian))
             {
-                errors.Add(new Exception($"Employee {employee.FirstName} {employee.LastName} " +
-                    "must be veterinarian to be validated with VeterinarianHireValidator"));
-                return errors;
+                throw new Exception($"Employee {employee.FirstName} {employee.LastName} " +
+                    "must be veterinarian to be validated with VeterinarianHireValidator");
             }
 
             Veterinarian veterinarian = (Veterinarian)employee;
@@ -26,13 +25,10 @@ namespace ZooLabLibrary
             {
                 if (!veterinarian.AnimalExperiences.Contains(animalType))
                 {
-                    errors.Add(new NoNeededExperienceException($"Veterinarian {employee.FirstName} {employee.LastName} " +
-                        $"must have experience at working with {animalType}"));
-                    break;
+                    throw new NoNeededExperienceException($"Veterinarian {employee.FirstName} {employee.LastName} " +
+                        $"must have experience at working with {animalType}");
                 }
             }
-
-            return errors;
         }
     }
 }

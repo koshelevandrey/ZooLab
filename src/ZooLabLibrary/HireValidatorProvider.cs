@@ -4,17 +4,17 @@ namespace ZooLabLibrary
 {
     public class HireValidatorProvider
     {
-        public HireValidator GetHireValidator(IEmployee employee)
+        public IHireValidator GetHireValidator(IEmployee employee)
         {
             if (employee is ZooKeeper)
             {
                 return new ZooKeeperHireValidator();
             }
-            else
+            else if (employee is Veterinarian)
             {
                 return new VeterinarianHireValidator();
             }
-            //throw new Exception($"No available HireValidator for {employee.GetType().Name} class");
+            throw new Exception($"No available HireValidator for {employee.GetType().Name} class");
         }
     }
 }
