@@ -2,10 +2,7 @@
 
 namespace ZooLabLibrary
 {
-    public enum Medicine
+    public abstract class Medicine
     {
-        Antibiotics = 1,
-        AntiDepression = 2,
-        AntiImflammatory = 3
     }
 }

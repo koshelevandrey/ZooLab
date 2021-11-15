@@ -2,7 +2,7 @@
 
 namespace ZooLabLibrary
 {
-    public abstract class Food
+    public class Grass : Food
     {
     }
 }

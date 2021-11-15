@@ -10,7 +10,7 @@ namespace ZooLabLibrary
         }
 
         public override int RequiredSpaceSqtFt => 5;
-        public override Food FavoriteFood => Food.Vegetable;
+        public override Food FavoriteFood => new Vegetable();
 
         public override bool IsFriendlyWithAnimal(Animal animal)
         {

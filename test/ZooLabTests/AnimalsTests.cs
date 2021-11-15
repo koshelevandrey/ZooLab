@@ -13,7 +13,7 @@ namespace ZooLabTests
             Lion lion = new Lion(1, false);
             Assert.NotNull(lion);
             Assert.Equal(1000, lion.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Meat, lion.FavoriteFood);
+            Assert.True(lion.FavoriteFood is Meat);
         }
 
         [Fact]
@@ -22,7 +22,7 @@ namespace ZooLabTests
             Elephant elephant = new Elephant(1, false);
             Assert.NotNull(elephant);
             Assert.Equal(1000, elephant.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Meat, elephant.FavoriteFood);
+            Assert.True(elephant.FavoriteFood is Meat);
         }
 
         [Fact]
@@ -31,7 +31,8 @@ namespace ZooLabTests
             Bison bison = new Bison(1, false);
             Assert.NotNull(bison);
             Assert.Equal(1000, bison.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Meat, bison.FavoriteFood);
+            Assert.True(bison.FavoriteFood is Meat);
+
         }
 
         [Fact]
@@ -40,7 +41,7 @@ namespace ZooLabTests
             Penguin penguin = new Penguin(1, false);
             Assert.NotNull(penguin);
             Assert.Equal(10, penguin.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Meat, penguin.FavoriteFood);
+            Assert.True(penguin.FavoriteFood is Meat);
         }
 
         [Fact]
@@ -49,7 +50,7 @@ namespace ZooLabTests
             Parrot parrot = new Parrot(1, false);
             Assert.NotNull(parrot);
             Assert.Equal(5, parrot.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Vegetable, parrot.FavoriteFood);
+            Assert.True(parrot.FavoriteFood is Vegetable);
         }
 
         [Fact]
@@ -58,7 +59,7 @@ namespace ZooLabTests
             Turtle turtle = new Turtle(1, false);
             Assert.NotNull(turtle);
             Assert.Equal(5, turtle.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Grass, turtle.FavoriteFood);
+            Assert.True(turtle.FavoriteFood is Grass);
         }
 
         [Fact]
@@ -67,7 +68,7 @@ namespace ZooLabTests
             Snake snake = new Snake(1, false);
             Assert.NotNull(snake);
             Assert.Equal(2, snake.RequiredSpaceSqtFt);
-            Assert.Equal(Food.Meat, snake.FavoriteFood);
+            Assert.True(snake.FavoriteFood is Meat);
         }
 
         [Fact]

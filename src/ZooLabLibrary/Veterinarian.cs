@@ -39,7 +39,7 @@ namespace ZooLabLibrary
                 //Console.WriteLine($"Animal {animal.GetType().Name}#{animal.ID} is not sick");
                 return true;
             }
-            animal.Heal(Medicine.Antibiotics);
+            animal.Heal(new Antibiotics());
             Console.WriteLine($"Animal {animal.GetType().Name}#{animal.ID} was healed by veterinarian {this.FirstName} {this.LastName}");
             return true;
         }
